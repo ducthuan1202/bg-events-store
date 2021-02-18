@@ -10,6 +10,8 @@ class EventController extends Controller
     {
         $params = request()->all();
 
+        // dd(config('database.connections.mysql'));
+
         $model = new Event();
         $data = $model->search($params);
 

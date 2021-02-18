@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  my_nginx_alpine:
+    build:
+      context: ./
+      dockerfile: docker/nginx.Dockerfile
+    volumes:
+      - ./:/var/www
+    ports:
+      - "8080:80"
+    links:
+      - my_php_74
+  my_php_74:
+    build:
+      context: ./
+      dockerfile: docker/php.Dockerfile
+    volumes:
+      - ./:/var/www
